@@ -7,8 +7,19 @@ res = requests.get(URL)
 
 soup = BeautifulSoup(res.content, 'html.parser')
 
-search_results = soup.find(id="ResultsContainer")
+results = soup.find(id="ResultsContainer")
 
-job_card = search_results.find_all('section', class_('card-content'))
+job_cards = results.find_all('section', class_='card-content')
+
+for job_card in job_cards:
+  title_elem = job_card.find('h2', class_='title'))
+  company_elem = job_card.find('div', class_="company"))
+  location_elem = job_card.find('div', class_='location'))
+  print(title_elem)
+  print(company_elem)
+  print(location_elem)
+  print()
+
+
 
 
